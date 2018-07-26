@@ -9,6 +9,8 @@ import {
     GraphQLList
 } from 'graphql';
 
+import Users from '../../models/users'
+
 export const UserType= new GraphQLObjectType ({
 
     name:"ListUsers",
@@ -42,10 +44,18 @@ export const UserType= new GraphQLObjectType ({
             type:GraphQLString
         },
         following:{
-            type:GraphQLList(GraphQLInt)
+            type:UserType,
+            resolve(_id){
+                const {following} = _id
+                return Users.findById(following).exec()
+            }
         },
         followers:{
-            type:GraphQLList(GraphQLInt)
+            type:UserType,
+            resolve(_id){
+                const {followers} = _id
+                return Users.findById(followers).exec()
+            }
         },
         create_at:{
             type:GraphQLString

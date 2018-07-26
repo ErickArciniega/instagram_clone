@@ -43,12 +43,12 @@ const UserSchema = new Schema ({
         type:String
     },
     "following":{
-        type:[Number],
-        default:0
+        type: Schema.Types.ObjectId,
+        ref: "Users"
     },
     "followers":{
-        type:[Number],
-        default:0
+        type: Schema.Types.ObjectId,
+        ref: "Users"
     },
     "create_at":{
         type:Date,
