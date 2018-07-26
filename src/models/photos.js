@@ -13,7 +13,8 @@ const PhotosSchema = new Schema ({
     },
     "user":{
         type:Schema.Types.ObjectId,
-        ref:'Users'
+        ref:'Users',
+        required:true
     },
     "favoriteCount":{
         type:[Number],

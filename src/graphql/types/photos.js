@@ -48,15 +48,18 @@ export const PhotoType= new GraphQLObjectType ({
 export const PhotoInputType = new GraphQLInputObjectType ({
     //esto lo crea el usuario
 
-name:"addPhoto",
-    description:"Agrega, modifica nuevas fotos a la BD",
-    fields: () => ({
-        
-        photo:{
-            type:GraphQLString
-        },
-        description:{
-            type:GraphQLString
-        }
-    })
+    name:"addPhoto",
+        description:"Agrega, modifica nuevas fotos a la BD",
+        fields: () => ({
+            
+            photo:{
+                type:GraphQLString
+            },
+            description:{
+                type:GraphQLString
+            },
+            user:{
+                type:GraphQLString
+            }
+        })
 });
