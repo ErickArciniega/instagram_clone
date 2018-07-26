@@ -43,13 +43,13 @@ const UserSchema = new Schema ({
         type:String
     },
     "following":{
-        type: Schema.Types.ObjectId,
+        type: [Schema.Types.ObjectId],
         ref: "Users"
     },
-    "followers":{
+    "followers":[{
         type: Schema.Types.ObjectId,
         ref: "Users"
-    },
+    }],
     "create_at":{
         type:Date,
         default:new Date()

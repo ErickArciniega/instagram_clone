@@ -20,7 +20,7 @@ const queryUserPhotos = {
     resolve(root,params){
         //const user = User.findById(params.id).exec();
         
-        const photos = Photo.find({"user": params.id}).exec();
+        const photos = Photo.find({"user": params.id}).sort({ upload_at: -1 }).exec();
         return photos;
     }
 

@@ -100,5 +100,21 @@ name:"addUsers",
         password:{
             type:GraphQLString
         }
+    }),
+
+    
+});
+
+export const FollowingType = new GraphQLInputObjectType({
+    name:"addFollowing",
+    description:"Agrega un usuario a la lista de Following",
+    fields:() =>({
+        _id:{
+            type:GraphQLNonNull(GraphQLID)
+        },
+        name:{
+            type:GraphQLString
+        }
     })
+
 });
