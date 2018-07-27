@@ -44,17 +44,17 @@ export const UserType= new GraphQLObjectType ({
             type:GraphQLString
         },
         following:{
-            type:UserType,
-            resolve(_id){
-                const {following} = _id
-                return Users.findById(following).exec()
+            type:new GraphQLList(UserType),
+            resolve(user){
+                const {following} = user
+                return Users.find({'_id':{$in:following}}).exec()
             }
         },
         followers:{
-            type:UserType,
-            resolve(_id){
-                const {followers} = _id
-                return Users.findById(followers).exec()
+            type:new GraphQLList(UserType),
+            resolve(user){
+                const {followers} = user
+                return Users.find({'_id':{$in:followers}}).exec()
             }
         },
         create_at:{
@@ -118,3 +118,18 @@ export const FollowingType = new GraphQLInputObjectType({
     })
 
 });
+
+export const FollowersType = new GraphQLInputObjectType({
+    name:"addFollowers",
+    description:"Agrega un usuario a la lista de Followers",
+    fields:() =>({
+        _id:{
+            type:GraphQLNonNull(GraphQLID)
+        },
+        name:{
+            type:GraphQLString
+        }
+    })
+
+});
+

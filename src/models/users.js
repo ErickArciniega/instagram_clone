@@ -47,7 +47,7 @@ const UserSchema = new Schema ({
         ref: "Users"
     },
     "followers":[{
-        type: Schema.Types.ObjectId,
+        type: [Schema.Types.ObjectId],
         ref: "Users"
     }],
     "create_at":{
