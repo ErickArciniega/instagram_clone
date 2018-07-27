@@ -12,6 +12,10 @@ var _users = require('./src/models/users');
 
 var _users2 = _interopRequireDefault(_users);
 
+var _cors = require('cors');
+
+var _cors2 = _interopRequireDefault(_cors);
+
 var _bodyParser = require('body-parser');
 
 var _bodyParser2 = _interopRequireDefault(_bodyParser);
@@ -88,6 +92,9 @@ app.use('/graphql', (0, _expressGraphql2.default)(function (req, res) {
 		pretty: true
 	};
 }));
+
+//cors
+app.use((0, _cors2.default)()); //esto no es seguro checar
 
 app.get('/', function (req, res) {
 	res.send("Funcionando :D");
