@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import User from './src/models/users';
+import cors from 'cors';
 import bodyParser from 'body-parser';
 import {createToken} from './src/resolvers/create';
 
@@ -64,6 +65,10 @@ app.use('/graphql', graphQLHTTP((req,res) => ({
 	graphiql:true,
 	pretty:true
 })))
+
+
+//cors
+app.use(cors());	//esto no es seguro checar
 
 app.get('/',(req,res) =>{
 	res.send("Funcionando :D");
