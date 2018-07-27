@@ -7,5 +7,5 @@ export default {
     allPhotos,
     singlePhoto,
     userPhotos,
-    newsFeed
+    //newsFeed
 }
