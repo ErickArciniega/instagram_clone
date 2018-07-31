@@ -19,6 +19,12 @@ db.on('error',() => console.log("Error al conectar la BD"))
 	.once('open',() => console.log("Conectado a la BD :)"));
 
 app.use(bodyParser.json());
+
+
+//cors
+app.use(cors());	//esto no es seguro checar
+
+
 //creando nuevo usuario en la DB
 app.post('/signup',(req,res) =>{
 	let user = req.body
@@ -67,8 +73,6 @@ app.use('/graphql', graphQLHTTP((req,res) => ({
 })))
 
 
-//cors
-app.use(cors());	//esto no es seguro checar
 
 app.get('/',(req,res) =>{
 	res.send("Funcionando :D");

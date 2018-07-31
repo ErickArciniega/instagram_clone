@@ -46,6 +46,11 @@ db.on('error', function () {
 });
 
 app.use(_bodyParser2.default.json());
+
+//cors
+app.use((0, _cors2.default)()); //esto no es seguro checar
+
+
 //creando nuevo usuario en la DB
 app.post('/signup', function (req, res) {
 	var user = req.body;
@@ -91,9 +96,6 @@ app.use('/graphql', (0, _expressGraphql2.default)(function (req, res) {
 		pretty: true
 	};
 }));
-
-//cors
-app.use((0, _cors2.default)()); //esto no es seguro checar
 
 app.get('/', function (req, res) {
 	res.send("Funcionando :D");
